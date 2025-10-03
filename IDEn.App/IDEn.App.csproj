@@ -1,45 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Page Include="Vistas\AnalisisPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\ConfiguracionPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\DashboardPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\DatosPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\ReportesPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Vistas\AnalisisPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Vistas\ConfiguracionPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Vistas\DashboardPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Vistas\DatosPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Vistas\ReportesPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-
+	<ItemGroup>
+		<!-- Solo las referencias a otros proyectos -->
+		<ProjectReference Include="..\IDEn.Core\IDEn.Core.csproj" />
+		<ProjectReference Include="..\IDEn.Infraestructure\IDEn.Infrastructure.csproj" />
+	</ItemGroup>
 </Project>

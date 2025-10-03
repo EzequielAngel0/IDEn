@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEn
+namespace IDEn.Core.Models
 {
-    class IdenAnual
+    public class IdenMensual
     {
+        public int Anio { get; set; }
+        public string Mes { get; set; }
     }
 }

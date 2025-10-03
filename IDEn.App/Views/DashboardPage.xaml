@@ -1,0 +1,10 @@
+﻿<Page x:Class="IDEn.App.Views.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="DashboardPage">
+
+    <Grid Margin="24">
+        <Button Width="180" Height="40" Content="Ir a Análisis"
+                Click="IrAnalisis_Click"/>
+    </Grid>
+</Page>

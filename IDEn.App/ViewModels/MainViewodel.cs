@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEn
+namespace IDEn.App.ViewModels
 {
-    class ConsumoEnergia
+    internal class MainViewodel
     {
     }
 }

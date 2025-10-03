@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDEn
+namespace IDEn.Core.Abstractions
 {
-    class IdenMensual
+    internal class IReporteService
     {
     }
 }
