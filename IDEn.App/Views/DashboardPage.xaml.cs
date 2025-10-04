@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using IDEn.App.ViewModels;
 
 namespace IDEn.App.Views
 {
@@ -8,14 +9,37 @@ namespace IDEn.App.Views
         public DashboardPage()
         {
             InitializeComponent();
-            // Si quieres usar VM luego: DataContext = new DashboardViewModel();
+            DataContext = new DashboardViewModel();
         }
 
-        private void IrAnalisis_Click(object sender, RoutedEventArgs e)
+        private void VerDetalles_Click(object sender, RoutedEventArgs e)
         {
-            // Navegación simple usando el Frame de MainWindow
+            // Key identifica el indicador para la pantalla de análisis
+            var key = (string)((Button)sender).Tag;
+            var win = (MainWindow)Application.Current.MainWindow;
+            win.MainFrame.Navigate(new AnalisisPage(key));
+        }
+
+        // Navegación del sidebar (simple por ahora)
+        private void GoAnalisis(object s, RoutedEventArgs e)
+        {
             var win = (MainWindow)Application.Current.MainWindow;
             win.MainFrame.Navigate(new AnalisisPage());
+        }
+        private void GoDatos(object s, RoutedEventArgs e)
+        {
+            var win = (MainWindow)Application.Current.MainWindow;
+            win.MainFrame.Navigate(new DatosPage());
+        }
+        private void GoReportes(object s, RoutedEventArgs e)
+        {
+            var win = (MainWindow)Application.Current.MainWindow;
+            win.MainFrame.Navigate(new ReportesPage());
+        }
+        private void GoConfig(object s, RoutedEventArgs e)
+        {
+            var win = (MainWindow)Application.Current.MainWindow;
+            win.MainFrame.Navigate(new ConfiguracionPage());
         }
     }
 }

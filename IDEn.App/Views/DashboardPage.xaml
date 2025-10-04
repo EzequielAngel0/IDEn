@@ -1,10 +1,123 @@
 ﻿<Page x:Class="IDEn.App.Views.DashboardPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="DashboardPage">
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Title="Inicio">
 
-    <Grid Margin="24">
-        <Button Width="180" Height="40" Content="Ir a Análisis"
-                Click="IrAnalisis_Click"/>
+    <Page.Resources>
+        <!-- Colores base -->
+        <SolidColorBrush x:Key="Bg"     Color="#F4F6F8"/>
+        <SolidColorBrush x:Key="CardBg" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="Text1"  Color="#111827"/>
+        <SolidColorBrush x:Key="Text2"  Color="#6B7280"/>
+        <SolidColorBrush x:Key="Accent" Color="#2563EB"/>
+
+        <!-- Estilo tarjeta -->
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource CardBg}"/>
+            <Setter Property="CornerRadius" Value="14"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,14"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="8" Opacity="0.08"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Botón primario -->
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="BorderBrush" Value="#E5E7EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{StaticResource Text1}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D1D5DB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource Bg}">
+        <Grid.ColumnDefinitions>
+            <!-- Sidebar izquierda -->
+            <ColumnDefinition Width="240"/>
+            <!-- Contenido -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Style="{StaticResource PrimaryButton}" Content="Inicio" Margin="0,0,0,8"/>
+                <Button Style="{StaticResource PrimaryButton}" Content="Análisis" Margin="0,0,0,8" Click="GoAnalisis"/>
+                <Button Style="{StaticResource PrimaryButton}" Content="Datos" Margin="0,0,0,8" Click="GoDatos"/>
+                <Button Style="{StaticResource PrimaryButton}" Content="Reportes" Margin="0,0,0,8" Click="GoReportes"/>
+                <Button Style="{StaticResource PrimaryButton}" Content="Configuración" Margin="0,0,0,8" Click="GoConfig"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Contenido -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="28,24,28,28" >
+                <!-- Top bar -->
+                <DockPanel Margin="0,0,0,16">
+                    <TextBlock Text="Indicadores de Desempeño Energético (IDEn)"
+                               FontSize="28" FontWeight="Bold" Foreground="{StaticResource Text1}"
+                               DockPanel.Dock="Left"/>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" VerticalAlignment="Center">
+                        <TextBlock Text="Año:" VerticalAlignment="Center" Margin="0,0,8,0" Foreground="{StaticResource Text2}"/>
+                        <ComboBox Width="100" ItemsSource="{Binding AvailableYears}" SelectedItem="{Binding SelectedYear}"/>
+                    </StackPanel>
+                </DockPanel>
+
+                <!-- Lista de tarjetas -->
+                <ItemsControl ItemsSource="{Binding Cards}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource Card}">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="240"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Texto -->
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Title}" FontSize="16" FontWeight="SemiBold" Foreground="{StaticResource Text1}"/>
+                                        <TextBlock Margin="0,4,0,10" Foreground="{StaticResource Text2}">
+                                            <Run Text="Valor actual: "/>
+                                            <Run Text="{Binding Value, StringFormat={}{0:N4}}"/>
+                                            <Run Text=" "/>
+                                            <Run Text="{Binding Unit}"/>
+                                        </TextBlock>
+                                        <Button Content="Ver detalles" Style="{StaticResource PrimaryButton}"
+                                                Tag="{Binding Key}" Click="VerDetalles_Click"/>
+                                    </StackPanel>
+
+                                    <!-- Imagen de ejemplo / placeholder -->
+                                    <Border Grid.Column="1" CornerRadius="12" Background="#E5E7EB"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

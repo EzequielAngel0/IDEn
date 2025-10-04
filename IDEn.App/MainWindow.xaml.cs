@@ -8,7 +8,7 @@ namespace IDEn.App
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new DashboardPage()); // Página inicial
+            MainFrame.Navigate(new DashboardPage());
         }
     }
 }
