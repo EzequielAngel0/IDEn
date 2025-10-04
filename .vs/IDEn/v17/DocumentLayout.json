@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|c:\\users\\angel ezequiel\\source\\repos\\iden\\iden.app\\views\\analisispage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|solutionrelative:iden.app\\views\\analisispage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|c:\\users\\angel ezequiel\\source\\repos\\iden\\iden.app\\views\\analisispage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|solutionrelative:iden.app\\views\\analisispage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|c:\\users\\angel ezequiel\\source\\repos\\iden\\iden.app\\viewmodels\\aanalisisviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|solutionrelative:iden.app\\viewmodels\\aanalisisviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|c:\\users\\angel ezequiel\\source\\repos\\iden\\iden.app\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FBE8028-2607-4D62-9B60-5F37A0F7BA2A}|IDEn.App\\IDEn.App.csproj|solutionrelative:iden.app\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -14,21 +26,55 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AnalisisPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\Views\\AnalisisPage.xaml.cs",
+              "RelativeDocumentMoniker": "IDEn.App\\Views\\AnalisisPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\Views\\AnalisisPage.xaml.cs",
+              "RelativeToolTip": "IDEn.App\\Views\\AnalisisPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T21:50:56.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AnalisisPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\Views\\AnalisisPage.xaml",
+              "RelativeDocumentMoniker": "IDEn.App\\Views\\AnalisisPage.xaml",
+              "ToolTip": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\Views\\AnalisisPage.xaml",
+              "RelativeToolTip": "IDEn.App\\Views\\AnalisisPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-04T21:50:42.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AanalisisViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\ViewModels\\AanalisisViewModel.cs",
+              "RelativeDocumentMoniker": "IDEn.App\\ViewModels\\AanalisisViewModel.cs",
+              "ToolTip": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\ViewModels\\AanalisisViewModel.cs",
+              "RelativeToolTip": "IDEn.App\\ViewModels\\AanalisisViewModel.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAA3wF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T21:50:30.558Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "DashboardViewModel.cs",
               "DocumentMoniker": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\ViewModels\\DashboardViewModel.cs",
               "RelativeDocumentMoniker": "IDEn.App\\ViewModels\\DashboardViewModel.cs",
               "ToolTip": "C:\\Users\\Angel Ezequiel\\source\\repos\\IDEn\\IDEn.App\\ViewModels\\DashboardViewModel.cs",
               "RelativeToolTip": "IDEn.App\\ViewModels\\DashboardViewModel.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA3wCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T19:11:04.6Z",
               "EditorCaption": ""
