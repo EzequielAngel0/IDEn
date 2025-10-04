@@ -1,12 +1,121 @@
-﻿<Window x:Class="IDEn.DatosPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IDEn"
-        mc:Ignorable="d"
-        Title="DatosPage" Height="450" Width="800">
-    <Grid>
-        
+﻿<Page x:Class="IDEn.App.Views.DatosPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Datos">
+
+    <Page.Resources>
+        <Style x:Key="TextInput" TargetType="TextBox">
+            <Setter Property="Margin" Value="0,6,0,12"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderBrush" Value="#E5E7EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#F3F4F6"/>
+        </Style>
+
+        <!-- Visualización de errores -->
+        <Style TargetType="TextBox" BasedOn="{StaticResource TextInput}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="BorderBrush" Value="#DC2626"/>
+                    <Setter Property="ToolTip"
+                            Value="{Binding (Validation.Errors)[0].ErrorContent, RelativeSource={RelativeSource Self}}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SectionTitle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#374151"/>
+            <Setter Property="Margin" Value="0,18,0,6"/>
+        </Style>
+
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#9CA3AF"/>
+                    <Setter Property="BorderBrush" Value="#9CA3AF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#F4F6F8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar básica -->
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Content="Inicio" Margin="0,0,0,8" Click="GoInicio"/>
+                <Button Content="Análisis" Margin="0,0,0,8" Click="GoAnalisis"/>
+                <Button Content="Datos" Margin="0,0,0,8"/>
+                <Button Content="Reportes" Margin="0,0,0,8" Click="GoReportes"/>
+                <Button Content="Configuración" Margin="0,0,0,8" Click="GoConfig"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Formulario -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="28,24,28,24" Width="640">
+                <TextBlock Text="Ingreso de Datos Mensuales"
+                           FontSize="28" FontWeight="Bold" Margin="0,0,0,16"/>
+
+                <TextBlock Text="Mes" Style="{StaticResource SectionTitle}"/>
+                <ComboBox ItemsSource="{Binding Meses}"
+                          SelectedItem="{Binding Mes, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Año" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding Anio, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Producción Mensual" FontSize="16" FontWeight="Bold" Margin="0,16,0,0"/>
+
+                <TextBlock Text="Soluciones Inyectables (unidades)" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding SolucionesInyectables, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Líquidos Enterales (unidades)" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding LiquidosEnterales, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Ciclos de Esterilización" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding CiclosEsterilizacion, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Consumos Energéticos" FontSize="16" FontWeight="Bold" Margin="0,16,0,0"/>
+
+                <TextBlock Text="Consumo Total de Electricidad (kWh)" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding KwhTotal, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Consumo de Electricidad Transformador 2 (kWh)" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding KwhT2, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Consumo de Gas Natural (GJ)" Style="{StaticResource SectionTitle}"/>
+                <TextBox Text="{Binding GasGJ, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button Content="Guardar"
+                        Margin="0,18,0,0"
+                        Style="{StaticResource PrimaryButton}"
+                        Command="{Binding GuardarCommand}"/>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
-</Window>
+</Page>

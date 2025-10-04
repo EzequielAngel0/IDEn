@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using IDEn.Core.Enums;
 
 namespace IDEn.Core.Models
 {
     public class ConsumoEnergia
     {
         public int Anio { get; set; }
-        public string Mes { get; set; }
+        public Mes Mes { get; set; }                 // enum
         public double KwhTotal { get; set; }
-        // etc.
+        public double KwhTransformador2 { get; set; }
+        public double GasNaturalGJ { get; set; }
     }
 }

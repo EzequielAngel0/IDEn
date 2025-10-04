@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using IDEn.App.ViewModels;
 
-namespace IDEn
+namespace IDEn.App.Views
 {
-    /// <summary>
-    /// Interaction logic for DatosPage.xaml
-    /// </summary>
-    public partial class DatosPage : Window
+    public partial class DatosPage : Page
     {
         public DatosPage()
         {
             InitializeComponent();
+            DataContext = new DatosViewModel();
         }
+
+        // Navegación simple con el Frame del MainWindow
+        private void GoInicio(object s, RoutedEventArgs e)
+            => ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new DashboardPage());
+
+        private void GoAnalisis(object s, RoutedEventArgs e)
+            => ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AnalisisPage());
+
+        private void GoReportes(object s, RoutedEventArgs e)
+            => ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new ReportesPage());
+
+        private void GoConfig(object s, RoutedEventArgs e)
+            => ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new ConfiguracionPage());
     }
 }
