@@ -1,12 +1,120 @@
-﻿<Window x:Class="IDEn.ReportesPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IDEn"
-        mc:Ignorable="d"
-        Title="ReportesPage" Height="450" Width="800">
-    <Grid>
-        
+﻿<Page x:Class="IDEn.App.Views.ReportesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Reportes">
+
+    <Page.Resources>
+        <Style x:Key="CardTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,0,16"/>
+        </Style>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#374151"/>
+            <Setter Property="Margin" Value="0,12,0,4"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="Padding" Value="14,8"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="#9CA3AF"/>
+                    <Setter Property="BorderBrush" Value="#9CA3AF"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="#F4F6F8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Content="Inicio" Click="GoInicio" Margin="0,0,0,8"/>
+                <Button Content="Datos" Click="GoDatos" Margin="0,0,0,8"/>
+                <Button Content="Análisis" Click="GoAnalisis" Margin="0,0,0,8"/>
+                <Button Content="Reportes" Margin="0,0,0,8"/>
+                <Button Content="Configuración" Click="GoConfig" Margin="0,0,0,8"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Contenido -->
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="28,24,28,24">
+                <TextBlock Text="Generación de Reportes" Style="{StaticResource CardTitle}"/>
+
+                <Grid Margin="0,0,0,16">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="320"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="320"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Tipo de reporte -->
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="Tipo de reporte" Style="{StaticResource Label}"/>
+                        <ComboBox ItemsSource="{Binding ReportTypes}"
+                                  SelectedItem="{Binding SelectedReportType}" Height="36"/>
+                    </StackPanel>
+
+                    <!-- Fechas -->
+                    <StackPanel Grid.Column="2">
+                        <TextBlock Text="Fecha de Inicio" Style="{StaticResource Label}"/>
+                        <DatePicker SelectedDate="{Binding StartDate}" Height="36"/>
+                        <TextBlock Text="Fecha de Fin" Style="{StaticResource Label}" Margin="0,12,0,4"/>
+                        <DatePicker SelectedDate="{Binding EndDate}" Height="36"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Formato -->
+                <StackPanel Width="320">
+                    <TextBlock Text="Formato de exportación" Style="{StaticResource Label}"/>
+                    <ComboBox ItemsSource="{Binding ExportFormats}"
+                              SelectedItem="{Binding SelectedFormat}" Height="36"/>
+                </StackPanel>
+
+                <!-- Acciones -->
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,12">
+                    <Button Content="Generar" Style="{StaticResource PrimaryButton}"
+                            Command="{Binding GenerarCommand}"/>
+                    <Button Content="Exportar" Margin="12,0,0,0" Style="{StaticResource PrimaryButton}"
+                            Command="{Binding ExportarCommand}"/>
+                </StackPanel>
+
+                <!-- Vista previa -->
+                <DataGrid ItemsSource="{Binding Rows}" AutoGenerateColumns="False" CanUserAddRows="False"
+                          IsReadOnly="True" Margin="0,8,0,0" HeadersVisibility="Column">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Periodo" Binding="{Binding Periodo}"/>
+                        <DataGridTextColumn Header="Inyectables" Binding="{Binding Inyectables}"/>
+                        <DataGridTextColumn Header="Enterales" Binding="{Binding Enterales}"/>
+                        <DataGridTextColumn Header="Esterilización" Binding="{Binding Esterilizacion}"/>
+                        <DataGridTextColumn Header="kWh Total" Binding="{Binding KwhTotal, StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="kWh T2" Binding="{Binding KwhT2, StringFormat={}{0:N2}}"/>
+                        <DataGridTextColumn Header="Gas (GJ)" Binding="{Binding GasGJ, StringFormat={}{0:N2}}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
-</Window>
+</Page>
