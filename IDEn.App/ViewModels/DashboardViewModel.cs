@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace IDEn.App.ViewModels
 {
@@ -15,15 +17,26 @@ namespace IDEn.App.ViewModels
         public int[] AvailableYears { get; } = new[] { 2023, 2024, 2025 };
     }
 
-    public class IdenCardVM
+    // ← Reemplaza esta clase por completo
+    public class IdenCardVM : INotifyPropertyChanged
     {
-        public IdenCardVM(string title, string unit, double value, string key)
-        { Title = title; Unit = unit; Value = value; Key = key; }
+        private string _title;
+        private string _unit;
+        private double _value;
+        private string _key;
 
-        public string Title { get; }
-        public string Unit { get; }
-        public double Value { get; }
-        public string Key { get; }   // identificador para navegar
-        // opcional: string ImagePath { get; } = "Assets/iden1.jpg";
+        public IdenCardVM(string title, string unit, double value, string key)
+        {
+            _title = title; _unit = unit; _value = value; _key = key;
+        }
+
+        public string Title { get => _title; set { _title = value; OnPropertyChanged(); } }
+        public string Unit { get => _unit; set { _unit = value; OnPropertyChanged(); } }
+        public double Value { get => _value; set { _value = value; OnPropertyChanged(); } }
+        public string Key { get => _key; set { _key = value; OnPropertyChanged(); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged([CallerMemberName] string name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
