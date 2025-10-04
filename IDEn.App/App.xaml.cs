@@ -2,5 +2,8 @@
 
 namespace IDEn.App
 {
-    public partial class App : Application { }
+    public partial class App : Application
+    {
+        // No necesitas OnStartup si usas StartupUri
+    }
 }

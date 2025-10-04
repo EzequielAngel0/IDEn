@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using IDEn.App.Views;
 
 namespace IDEn.App
 {
@@ -8,7 +7,7 @@ namespace IDEn.App
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new DashboardPage());
+            MainFrame.Navigate(new Views.DashboardPage());
         }
     }
 }

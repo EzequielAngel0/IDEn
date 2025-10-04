@@ -2,29 +2,31 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace IDEn.App.Utils
+namespace IDEn.App.Commands
 {
-    /// <summary>
-    /// Comando asíncrono reutilizable en toda la app.
-    /// </summary>
-    public sealed class AsyncRelayCommand : ICommand
+    public class AsyncRelayCommand : ICommand
     {
-        private readonly Func<Task> _exec;
-        private readonly Func<bool> _can;
+        private readonly Func<Task> _execute;
+        private readonly Func<bool>? _canExecute;
+        private bool _isExecuting;
 
-        public AsyncRelayCommand(Func<Task> execute, Func<bool> canExecute = null)
+        public AsyncRelayCommand(Func<Task> execute, Func<bool>? canExecute = null)
         {
-            _exec = execute ?? throw new ArgumentNullException(nameof(execute));
-            _can = canExecute;
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
         }
 
-        public bool CanExecute(object parameter) => _can?.Invoke() ?? true;
-        public async void Execute(object parameter) => await _exec();
+        public bool CanExecute(object? parameter) => !_isExecuting && (_canExecute?.Invoke() ?? true);
 
-        public event EventHandler CanExecuteChanged
+        public async void Execute(object? parameter)
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            if (!CanExecute(parameter)) return;
+            _isExecuting = true; RaiseCanExecuteChanged();
+            try { await _execute(); }
+            finally { _isExecuting = false; RaiseCanExecuteChanged(); }
         }
+
+        public event EventHandler? CanExecuteChanged;
+        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 }

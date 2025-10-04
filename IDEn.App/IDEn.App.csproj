@@ -1,13 +1,60 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<OutputType>WinExe</OutputType>
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<UseWPF>true</UseWPF>
+		<OutputType>WinExe</OutputType>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="assets\icons\analytics-filled.png" />
+	  <None Remove="assets\icons\analytics.png" />
+	  <None Remove="assets\icons\database-filled.png" />
+	  <None Remove="assets\icons\database.png" />
+	  <None Remove="assets\icons\home-filled.png" />
+	  <None Remove="assets\icons\home.png" />
+	  <None Remove="assets\icons\report-filled.png" />
+	  <None Remove="assets\icons\report.png" />
+	  <None Remove="assets\icons\settings-filled.png" />
+	  <None Remove="assets\icons\settings.png" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<!-- Solo las referencias a otros proyectos -->
 		<ProjectReference Include="..\IDEn.Core\IDEn.Core.csproj" />
 		<ProjectReference Include="..\IDEn.Infraestructure\IDEn.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="assets\icons\analytics-filled.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\analytics.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\database-filled.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\database.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\home-filled.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\home.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\report-filled.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\report.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\settings-filled.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="assets\icons\settings.png">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
 	</ItemGroup>
 </Project>

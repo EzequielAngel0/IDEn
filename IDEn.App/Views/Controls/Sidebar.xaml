@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="IDEn.App.Views.Controls.Sidebar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="Root"
+             Width="320" Background="#F7FAFC">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="NavActive" Color="#E8EDF2"/>
+        <SolidColorBrush x:Key="TextMain"  Color="#0D141C"/>
+
+        <!-- Botón del menú -->
+        <Style x:Key="SideNavButton" TargetType="ToggleButton">
+            <Setter Property="Foreground" Value="{StaticResource TextMain}"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="14,10"/>
+            <Setter Property="Margin" Value="12,6,12,0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="bg" Background="{TemplateBinding Background}" CornerRadius="16">
+                            <ContentPresenter Margin="4,0,0,0" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bg" Property="Background" Value="{StaticResource NavActive}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="bg" Property="Background" Value="{StaticResource NavActive}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold"
+                   Foreground="#0D141C" Margin="16,16,0,12"/>
+
+        <!-- Inicio -->
+        <ToggleButton x:Name="BtnInicio" Style="{StaticResource SideNavButton}" Click="GoInicio">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="IconInicio" Width="20" Height="20" Margin="12,0,12,0"
+                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Inicio" VerticalAlignment="Center"/>
+            </StackPanel>
+        </ToggleButton>
+
+        <!-- Análisis -->
+        <ToggleButton x:Name="BtnAnalisis" Style="{StaticResource SideNavButton}" Click="GoAnalisis">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="IconAnalisis" Width="20" Height="20" Margin="12,0,12,0"
+                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Análisis" VerticalAlignment="Center"/>
+            </StackPanel>
+        </ToggleButton>
+
+        <!-- Datos -->
+        <ToggleButton x:Name="BtnDatos" Style="{StaticResource SideNavButton}" Click="GoDatos">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="IconDatos" Width="20" Height="20" Margin="12,0,12,0"
+                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Datos" VerticalAlignment="Center"/>
+            </StackPanel>
+        </ToggleButton>
+
+        <!-- Reportes -->
+        <ToggleButton x:Name="BtnReportes" Style="{StaticResource SideNavButton}" Click="GoReportes">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="IconReportes" Width="20" Height="20" Margin="12,0,12,0"
+                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Reportes" VerticalAlignment="Center"/>
+            </StackPanel>
+        </ToggleButton>
+
+        <!-- Configuración -->
+        <ToggleButton x:Name="BtnConfig" Style="{StaticResource SideNavButton}" Click="GoConfig">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="IconConfig" Width="20" Height="20" Margin="12,0,12,0"
+                       Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Configuración" VerticalAlignment="Center"/>
+            </StackPanel>
+        </ToggleButton>
+    </StackPanel>
+</UserControl>

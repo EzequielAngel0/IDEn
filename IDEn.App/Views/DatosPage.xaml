@@ -1,7 +1,9 @@
 ﻿<Page x:Class="IDEn.App.Views.DatosPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Datos">
+      xmlns:ctrl="clr-namespace:IDEn.App.Views.Controls"
+      Title="Datos"
+      Background="#F7FAFC">
 
     <Page.Resources>
         <Style x:Key="TextInput" TargetType="TextBox">
@@ -12,7 +14,6 @@
             <Setter Property="Background" Value="#F3F4F6"/>
         </Style>
 
-        <!-- Visualización de errores -->
         <Style TargetType="TextBox" BasedOn="{StaticResource TextInput}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
@@ -58,25 +59,14 @@
         </Style>
     </Page.Resources>
 
-    <Grid Background="#F4F6F8">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="320"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Sidebar básica -->
-        <Border Background="#EEF2F7" Grid.Column="0">
-            <StackPanel Margin="16">
-                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
-                <Button Content="Inicio" Margin="0,0,0,8" Click="GoInicio"/>
-                <Button Content="Análisis" Margin="0,0,0,8" Click="GoAnalisis"/>
-                <Button Content="Datos" Margin="0,0,0,8"/>
-                <Button Content="Reportes" Margin="0,0,0,8" Click="GoReportes"/>
-                <Button Content="Configuración" Margin="0,0,0,8" Click="GoConfig"/>
-            </StackPanel>
-        </Border>
+        <ctrl:Sidebar Grid.Column="0" Active="Datos"/>
 
-        <!-- Formulario -->
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="28,24,28,24" Width="640">
                 <TextBlock Text="Ingreso de Datos Mensuales"
