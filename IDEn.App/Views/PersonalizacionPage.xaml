@@ -1,0 +1,33 @@
+﻿<Page x:Class="IDEn.App.Views.PersonalizacionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Personalización">
+    <Grid Background="#F4F6F8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Content="← Configuración" Click="Back"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="1" Margin="28,24,28,24" Width="480">
+            <TextBlock Text="Personalización de la Aplicación" FontSize="24" FontWeight="Bold" Margin="0,0,0,12"/>
+
+            <TextBlock Text="Tema" Margin="0,8,0,4"/>
+            <ComboBox SelectedItem="{Binding Tema}">
+                <ComboBoxItem Content="Claro"/>
+                <ComboBoxItem Content="Oscuro"/>
+            </ComboBox>
+
+            <TextBlock Text="Color Primario (hex)" Margin="0,12,0,4"/>
+            <TextBox Text="{Binding ColorPrimario}" />
+
+            <Button Content="Guardar" Margin="0,16,0,0" Width="120" Click="Guardar"/>
+        </StackPanel>
+    </Grid>
+</Page>

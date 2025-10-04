@@ -1,0 +1,30 @@
+﻿<Page x:Class="IDEn.App.Views.UmbralesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Umbrales">
+    <Grid Background="#F4F6F8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Content="← Configuración" Click="Back"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Column="1" Margin="28,24,28,24" Width="480">
+            <TextBlock Text="Umbrales de Alerta" FontSize="24" FontWeight="Bold" Margin="0,0,0,12"/>
+            <TextBlock Text="IDEn Máximo permitido" Margin="0,8,0,4"/>
+            <TextBox Text="{Binding IdenMax}" />
+            <TextBlock Text="kWh Total (máx)" Margin="0,12,0,4"/>
+            <TextBox Text="{Binding KwhTotalMax}" />
+            <TextBlock Text="Gas Natural (GJ) máx" Margin="0,12,0,4"/>
+            <TextBox Text="{Binding GasGJMax}" />
+
+            <Button Content="Guardar" Margin="0,16,0,0" Width="120" Click="Guardar"/>
+        </StackPanel>
+    </Grid>
+</Page>

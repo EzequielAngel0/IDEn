@@ -1,12 +1,78 @@
-﻿<Window x:Class="IDEn.ConfiguracionPage"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:IDEn"
-        mc:Ignorable="d"
-        Title="ConfiguracionPage" Height="450" Width="800">
-    <Grid>
-        
+﻿<Page x:Class="IDEn.App.Views.ConfiguracionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Configuración">
+    <Grid Background="#F4F6F8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Sidebar -->
+        <Border Background="#EEF2F7" Grid.Column="0">
+            <StackPanel Margin="16">
+                <TextBlock Text="IDEn" FontSize="20" FontWeight="Bold" Margin="4,8,0,16"/>
+                <Button Content="Inicio" Click="GoInicio" Margin="0,0,0,8"/>
+                <Button Content="Datos" Click="GoDatos" Margin="0,0,0,8"/>
+                <Button Content="Análisis" Click="GoAnalisis" Margin="0,0,0,8"/>
+                <Button Content="Reportes" Click="GoReportes" Margin="0,0,0,8"/>
+                <Button Content="Configuración" Margin="0,0,0,8"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Contenido -->
+        <ScrollViewer Grid.Column="1">
+            <StackPanel Margin="28,24,28,28">
+                <TextBlock Text="Configuración de la Aplicación" FontSize="28" FontWeight="Bold" Margin="0,0,0,12"/>
+
+                <!-- Usuarios -->
+                <TextBlock Text="Usuarios" FontWeight="Bold" Margin="0,12,0,8"/>
+                <Border Background="White" CornerRadius="12" Padding="14" Margin="0,0,0,10" BorderBrush="#E5E7EB" BorderThickness="1">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <TextBlock Text="Gestión de Usuarios" FontWeight="SemiBold"/>
+                            <TextBlock Text="Administrar los usuarios que tienen acceso a la aplicación." Foreground="#6B7280" FontSize="12"/>
+                        </StackPanel>
+                        <Button Content="Abrir" HorizontalAlignment="Right" Width="90" Click="OpenUsuarios"/>
+                    </DockPanel>
+                </Border>
+
+                <!-- Unidades -->
+                <TextBlock Text="Unidades de Medida" FontWeight="Bold" Margin="0,12,0,8"/>
+                <Border Background="White" CornerRadius="12" Padding="14" Margin="0,0,0,10" BorderBrush="#E5E7EB" BorderThickness="1">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <TextBlock Text="Unidades de Medida" FontWeight="SemiBold"/>
+                            <TextBlock Text="Configurar las unidades de medida usadas por IDEn." Foreground="#6B7280" FontSize="12"/>
+                        </StackPanel>
+                        <Button Content="Abrir" Width="90" Click="OpenUnidades"/>
+                    </DockPanel>
+                </Border>
+
+                <!-- Umbrales -->
+                <TextBlock Text="Umbrales de Alerta" FontWeight="Bold" Margin="0,12,0,8"/>
+                <Border Background="White" CornerRadius="12" Padding="14" Margin="0,0,0,10" BorderBrush="#E5E7EB" BorderThickness="1">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <TextBlock Text="Umbrales de Alerta" FontWeight="SemiBold"/>
+                            <TextBlock Text="Establecer límites para disparar alertas." Foreground="#6B7280" FontSize="12"/>
+                        </StackPanel>
+                        <Button Content="Abrir" Width="90" Click="OpenUmbrales"/>
+                    </DockPanel>
+                </Border>
+
+                <!-- Personalización -->
+                <TextBlock Text="Personalización" FontWeight="Bold" Margin="0,12,0,8"/>
+                <Border Background="White" CornerRadius="12" Padding="14" Margin="0,0,0,10" BorderBrush="#E5E7EB" BorderThickness="1">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <TextBlock Text="Personalización de la Aplicación" FontWeight="SemiBold"/>
+                            <TextBlock Text="Apariencia y comportamiento." Foreground="#6B7280" FontSize="12"/>
+                        </StackPanel>
+                        <Button Content="Abrir" Width="90" Click="OpenPersonalizacion"/>
+                    </DockPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
-</Window>
+</Page>
