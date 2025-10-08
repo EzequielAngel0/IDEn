@@ -105,6 +105,39 @@ La `ReportesPage` muestra **vista previa** en `DataGrid` y comandos **Generar/Ex
 
 ---
 
-## Licencia
+## 📄 Licencia
 
-Este proyecto se distribuye bajo la licencia **MIT**. Consulta `LICENSE` para más detalles.
+Este proyecto está bajo licencia EULA (Acuerdo de Licencia de Usuario Final). Consulta el archivo [EULA.md](./EULA.md) para más detalles sobre los términos de uso.
+
+---
+
+<h2 align="center">📫 Contáctame</h2>
+
+<table align="center">
+  <tr>
+    <td style="padding-left: 15px;">
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li>
+          <a href="https://www.linkedin.com/in/angelezequiel">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/Ezequiel27Angel">
+            <img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white"/>
+          </a>
+        </li>
+        <li>
+          <a href="https://discord.com/users/angelezequiel">
+            <img src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=discord&logoColor=white"/>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:barbosalomeliangelezequiel@gmail.com">
+            <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white"/>
+          </a>
+        </li>
+      </ul>
+    </td>
+  </tr>
+</table>
